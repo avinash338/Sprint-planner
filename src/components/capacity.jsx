@@ -49,6 +49,7 @@ const Capacity = ({ capacity, updateCapacity }) => {
                 name={"days"}
                 className={"form-group col-sm-2"}
                 placeholder={"Days"}
+                min={0}
                 onChange={e => handleInputChange(e, index)}
                 value={item.days !== 0 && item.days}
               />
