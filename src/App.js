@@ -30,7 +30,7 @@ const App = () => {
       }
     }).concat([
       {
-        name: 'Total',
+        name: '',
         available_hours: [...capacities].reduce((acc, e) => acc + e.days * 6, 0),
         assigned_hours: [...tasks].reduce((acc, e) => acc + e.hrs, 0)
       }
