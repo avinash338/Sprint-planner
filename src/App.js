@@ -67,8 +67,8 @@ const App = () => {
         submitClick && !previewMode && <>
           <div className="container-fluid row p-4 m-0 bg_color text-white text-center">
             <div className='col-sm-3 mt-3'>
-              <Titlefield className={'text-center'} text={"Total hours - " + totalHrs} />
-              <Titlefield className={'text-center'} text={"Available hours - " + remainingHours} />
+              <Titlefield className={'text-center'} text={"Total hours : " + totalHrs} />
+              <Titlefield className={'text-center'} text={"Available hours : " + remainingHours} />
             </div>
             <div className='col-sm-6'>
               <Titlefield className={'text-center'} text={sprintDetails.team_name} />
