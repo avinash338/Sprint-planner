@@ -39,7 +39,10 @@ export const TableComponent = (props) => (
       <tr>
         {
           props?.data?.length > 0 &&
-          Object.keys(props?.data[0]).map((item) => <th key={item}>{item.toUpperCase()}</th>)
+          Object.keys(props?.data[0]).map((item) => {
+            if (item === 'class') return null
+            return <th key={item}>{item.toUpperCase()}</th>
+          })
         }
       </tr>
     </thead>
@@ -49,9 +52,21 @@ export const TableComponent = (props) => (
         props?.data?.map((item, index) => {
           return <tr key={index}>
             {
-              (item)
-                ? Object.keys(item).map((e, i) => <td key={i}>{item[e]}</td>)
-                : null
+              (item) && Object.keys(item).map((e, i) => {
+                if (e === 'class') return null
+                return <td
+                  key={i}
+                  style={{
+                    backgroundColor: e === 'assigned_hours'
+                      ? item.assigned_hours <= item.available_hours
+                        ? '#ccffcc'
+                        : '#ffe6e6'
+                      : ''
+                  }}
+                >
+                  {item[e]}
+                </td>
+              })
             }
           </tr>
         })
@@ -66,7 +81,10 @@ export const ListComponent = (props) => (
       (props?.data && props?.data.length > 0) &&
       <ul>
         {
-          props.data.map((item, index) => <li key={index}> {item.note}</li>)
+          props.data.map((item, index) => {
+            if (item.note === '') return null
+            return <li key={index}> {item.note}</li>
+          })
         }
       </ul>
     }
@@ -80,11 +98,12 @@ export const SelectBox = (props) => (
       onChange={props.onChange}
       className={"form-control"}
       placeholder={props.placeholder}
+      value={props.value}
     >
       <option value='0'>{props.placeholder}</option>
       {
         (props.options.length > 0) &&
-        props.options.map((item, index) => <option key={index} value={item} selected={item === props.value}>{item}</option>)
+        props.options.map((item, index) => <option key={index} value={item}>{item}</option>)
       }
     </select>
   </div>
