@@ -55,6 +55,7 @@ const Tasks = ({ tasks, assignees, updateTasks }) => {
                 name={"hrs"}
                 className={"form-group col-sm-2"}
                 placeholder={"Hours"}
+                min={0}
                 value={item.hrs !== 0 && item.hrs}
                 onChange={e => handleInputChange(e, index)}
               />
