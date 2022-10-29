@@ -22,9 +22,22 @@ const App = () => {
   const [sprintDetails, setSprintDetails] = useState(constants.initialDetails);
 
   const handlePreview = () => {
+    const tempArr = [...capacities].map((item) => {
+      return {
+        name: item.name,
+        available_hours: item.days * 6,
+        assigned_hours: [...tasks].filter(e => e.assignee === item.name).reduce((acc, e) => acc + e.hrs, 0)
+      }
+    }).concat([
+      {
+        name: 'Total',
+        available_hours: [...capacities].reduce((acc, e) => acc + e.days * 6, 0),
+        assigned_hours: [...tasks].reduce((acc, e) => acc + e.hrs, 0)
+      }
+    ])
     const tempObj = {
       tasks,
-      capacities,
+      capacities: tempArr,
       details: sprintDetails,
       notes
     }
