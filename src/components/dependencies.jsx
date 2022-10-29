@@ -9,6 +9,7 @@ export const InputBox = (props) => (
       onChange={props.onChange}
       placeholder={props.placeholder}
       value={props.value}
+      min={props.min}
     />
   </div>
 );
@@ -100,7 +101,7 @@ export const SelectBox = (props) => (
       placeholder={props.placeholder}
       value={props.value}
     >
-      <option value='0'>{props.placeholder}</option>
+      <option value=''>{props.placeholder}</option>
       {
         (props.options.length > 0) &&
         props.options.map((item, index) => <option key={index} value={item}>{item}</option>)
