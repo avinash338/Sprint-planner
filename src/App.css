@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #f7f7f7;
+}
+.print__section {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.layout {
+  box-shadow: #f7f7f7;
+  height: 1080px;
+}
+
+.layout_title {
+  background-color: rgb(7, 107, 201);
+  padding: 10px;
+  color: rgb(255, 255, 255);
+}
+
+.bg_color {
+  background-color: rgb(7, 107, 201);
+  color: rgb(255, 255, 255);
+}
+
+.home {
+  box-shadow: 0px 0px 1px 1px rgb(127, 128, 130);
+  margin: 5% 35% 17%;
+  padding: 2% 2%;
+}
+
+input[type="date"]::before {
+  color: #999;
+  content: attr(placeholder) " : ";
+}
+
+input[type="date"]:focus::before {
+  content: " " !important;
+}
+
+.preview_btn {
+  background-color: rgb(255, 255, 255);
+  color: rgb(7, 107, 201);
+}
+
+.preview_btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.ml_5{
+  margin-left: 35%;
+}
+
+.largeBtn{
+  width: 150%;
+}
